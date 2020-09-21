@@ -15,6 +15,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CrisisCenterRoutingModule } from './crisis-center/crisis-center-routing.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CrisisCenterRoutingModule } from './crisis-center/crisis-center-routing
     DashboardComponent,
     HeroSearchComponent,
     PageNotFoundComponent,
+    ComposeMessageComponent,
   ],
   imports: [
     BrowserModule,
