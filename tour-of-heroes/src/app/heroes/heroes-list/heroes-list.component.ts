@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+import { MessageService } from '../../message.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
@@ -9,7 +12,7 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes-list.component.css'],
 })
 export class HeroesListComponent implements OnInit {
-  selectedHero: Hero;
+  selectedId: number;
   heroes: Hero[];
 
   getHeroes(): void {
@@ -31,10 +34,12 @@ export class HeroesListComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.getHeroes();
+    this.selectedId = +this.route.snapshot.paramMap.get('heroId');
   }
 }
